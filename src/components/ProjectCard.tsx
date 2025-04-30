@@ -1,4 +1,6 @@
 import RowIcon from "@/assets/RowIcon";
+import { bottomContentVariants } from "@/utils/animation";
+import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 interface ProjectProps {
   title: string;
@@ -6,10 +8,23 @@ interface ProjectProps {
   stack: string[];
   link: string;
   image: string;
+  delay: number;
 }
-function ProjectCard({ title, describe, stack, link, image }: ProjectProps) {
+function ProjectCard({
+  title,
+  describe,
+  stack,
+  link,
+  image,
+  delay,
+}: ProjectProps) {
   return (
-    <div className="flex flex-col gap-4 mb-5">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={bottomContentVariants(delay)}
+      className="flex flex-col gap-4 mb-5"
+    >
       <img src={image} width={"100%"} />
       <h1 className="text-2xl font-manrope">{title}</h1>
       <h1 className="text-normal font-manrope">{describe}</h1>
@@ -34,7 +49,7 @@ function ProjectCard({ title, describe, stack, link, image }: ProjectProps) {
           View project <RowIcon color="black" />
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -1,10 +1,7 @@
-import React, { useState } from "react";
-import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
-
-type NavProps = {
-  setCurrentSection: (section: number) => void;
-};
+import { useState } from "react";
+import { Button } from "./ui/button";
+import { NavProps } from "./section/ContactSection";
 
 function Navbar({ setCurrentSection }: NavProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

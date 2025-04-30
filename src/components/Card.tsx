@@ -2,15 +2,22 @@ import BoxIcon from "@/assets/BoxIcon";
 import React from "react";
 import { Button } from "./ui/button";
 import RowIcon from "@/assets/RowIcon";
-
+import { motion } from "framer-motion";
+import { leftContentVariants } from "@/utils/animation";
 interface CardProps {
   title: string;
   describe: string;
   link: string;
+  delay: number;
 }
-function Card({ title, describe, link }: CardProps) {
+function Card({ title, describe, link, delay }: CardProps) {
   return (
-    <div className="flex flex-col gap-y-5 min-h-[250px]">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={leftContentVariants(delay)}
+      className="flex flex-col gap-y-5 min-h-[250px]"
+    >
       <div className="flex flex-col gap-y-4 md:gap-y-4">
         <BoxIcon />
         <h1 className="text-white text-2xl font-manrope">{title}</h1>
@@ -29,7 +36,7 @@ function Card({ title, describe, link }: CardProps) {
           Learn More <RowIcon />
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

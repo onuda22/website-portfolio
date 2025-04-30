@@ -1,7 +1,5 @@
 import { ProjectList } from "@/utils/ProjectList";
-import ProjectCard from "./ProjectCard";
-import { Button } from "./ui/button";
-import RowIcon from "@/assets/RowIcon";
+import ProjectCard from "../ProjectCard";
 
 function ProjectSection() {
   return (
@@ -14,7 +12,8 @@ function ProjectSection() {
         A showcase of my development skills and creativity.
       </h1>
       <div className="grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 gap-4 pt-12">
-        {ProjectList.map((item) => {
+        {ProjectList.map((item, index) => {
+          const delay = 0.2 + index * 0.2;
           return (
             <ProjectCard
               title={item.title}
@@ -22,6 +21,7 @@ function ProjectSection() {
               image={item.image}
               link={item.link}
               stack={item.stack}
+              delay={delay}
             />
           );
         })}

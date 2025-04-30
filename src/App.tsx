@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef, JSX } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import HeroSection from "./components/HeroSection";
-import ContactSection from "./components/ContactSection";
-import AboutSection from "./components/AboutSection";
+import HeroSection from "./components/section/HeroSection";
 import Navbar from "./components/Navbar";
 import Layout from "./components/Layout";
-import AboutSection2 from "./components/AboutSection2";
-import SkillSection from "./components/SkillSection";
-import ProjectSection from "./components/ProjectSection";
+import SkillSection from "./components/section/SkillSection";
+import ProjectSection from "./components/section/ProjectSection";
+import AboutSection from "./components/section/AboutSection";
+import AboutSection2 from "./components/section/AboutSection2";
+import ContactSection from "./components/section/ContactSection";
 
 function App() {
   const [currentSection, setCurrentSection] = useState<number>(0);
@@ -64,7 +64,7 @@ function App() {
     {
       component: (
         <Layout
-          children={<ContactSection />}
+          children={<ContactSection setCurrentSection={setCurrentSection} />}
           bgColor={"bg-secondary-foreground"}
         />
       ),
