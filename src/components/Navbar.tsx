@@ -16,8 +16,8 @@ function Navbar({ setCurrentSection }: NavProps) {
   const navList = [
     { title: "Home", value: 0 },
     { title: "About me", value: 1 },
-    { title: "Projects", value: 2 },
-    { title: "Contact me", value: 3 },
+    { title: "Projects", value: 4 },
+    { title: "Contact me", value: 5 },
   ];
 
   const handleNavClick = (value: number) => {
